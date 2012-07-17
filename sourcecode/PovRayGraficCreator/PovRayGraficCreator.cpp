@@ -1,6 +1,6 @@
 // PovRayGraficCreator.cpp: Hauptprojektdatei.
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "fMain.h"
 
 using namespace PovRayGraficCreator;
