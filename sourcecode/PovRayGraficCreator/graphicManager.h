@@ -9,15 +9,27 @@
 #define GRAPHICMANAGER_H
 
 #include "povrayImage.h"
+#include "lightSource.h"
+#include "camera.h"
+
 using namespace std;
 
 class TGraphicManager{
+private:
 	// liste der verwendeten Figuren
-	// Lichtquelle
-	// Kameraeinstellung
+	TLightSource *mLightSource;// Lichtquelle
+	TCamera *mCamera;// Kameraeinstellung
 	TPRImage *mResultImage;
+	void Init();
+	void DeInit();
 public:
 	// povray datei
+	TGraphicManager(){
+		Init();
+	}
+	~TGraphicManager(){
+		DeInit();
+	}
 	bool CreatePovrayScript();
 	bool StartImageCalculation();
 };

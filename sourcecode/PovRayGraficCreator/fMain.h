@@ -13,47 +13,43 @@ namespace PovRayGraficCreator {
 	/// <summary>
 	/// Zusammenfassung für Form1
 	/// </summary>
-	public ref class MainForm : public System::Windows::Forms::Form
-	{
-	public:
-		MainForm(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Konstruktorcode hier hinzufügen.
-			//
-		}
-
-	protected:
-		/// <summary>
-		/// Verwendete Ressourcen bereinigen.
-		/// </summary>
-		~MainForm()
-		{
-			if (components)
-			{
-				delete components;
+	public ref class MainForm : public System::Windows::Forms::Form{
+	#pragma region vom system generiert
+		public:
+			MainForm(void){
+				InitializeComponent();
+				//
+				//TODO: Konstruktorcode hier hinzufügen.
+				//
 			}
-		}
-	private: System::Windows::Forms::MenuStrip^  mainMenu;
-	protected: 
-	private: System::Windows::Forms::ToolStripMenuItem^  miFile;
-	private: System::Windows::Forms::ToolStripMenuItem^  miHelp;
-	private: System::Windows::Forms::TreeView^  tvObjects;
 
-	private:
-		/// <summary>
-		/// Erforderliche Designervariable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+		protected:
+			/// <summary>
+			/// Verwendete Ressourcen bereinigen.
+			/// </summary>
+			~MainForm(){
+				if (components){
+					delete components;
+				}
+			}
+		private: System::Windows::Forms::MenuStrip^  mainMenu;
+		protected: 
+		private: System::Windows::Forms::ToolStripMenuItem^  miFile;
+		private: System::Windows::Forms::ToolStripMenuItem^  miHelp;
+		private: System::Windows::Forms::TreeView^  tvObjects;
 
-#pragma region Windows Form Designer generated code
+		private:
+			/// <summary>
+			/// Erforderliche Designervariable.
+			/// </summary>
+			System::ComponentModel::Container ^components;
+	#pragma endregion
+	#pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Erforderliche Methode für die Designerunterstützung.
 		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
 		/// </summary>
-		void InitializeComponent(void)
-		{
+		void InitializeComponent(void){
 			this->mainMenu = (gcnew System::Windows::Forms::MenuStrip());
 			this->miFile = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->miHelp = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -106,11 +102,14 @@ namespace PovRayGraficCreator {
 			this->mainMenu->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
-#pragma endregion
+	#pragma endregion
 	private: System::Void MainForm_Load(System::Object^  sender, System::EventArgs^  e) {
 			 }
-	};
-}
+	private:
+		TGraphicManager *mGraphicManager;
+
+	}; // end of class MainForm
+
+}// end of namespace
 

@@ -94,18 +94,22 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="gitObjects.cpp" />
     <ClCompile Include="graphicManager.cpp" />
+    <ClCompile Include="lightSource.cpp" />
     <ClCompile Include="PovRayGraficCreator.cpp" />
     <ClCompile Include="povrayImage.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="camera.h" />
     <ClInclude Include="fMain.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="gitObjects.h" />
     <ClInclude Include="graphicManager.h" />
+    <ClInclude Include="lightSource.h" />
     <ClInclude Include="povrayImage.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="utils.h" />
