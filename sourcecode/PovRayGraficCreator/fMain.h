@@ -1,5 +1,6 @@
 #pragma once
 
+#include "graphicManager.h"
 namespace PovRayGraficCreator {
 
 	using namespace System;

@@ -95,7 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gitObjects.cpp" />
+    <ClCompile Include="graphicManager.cpp" />
     <ClCompile Include="PovRayGraficCreator.cpp" />
+    <ClCompile Include="povrayImage.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +105,8 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="gitObjects.h" />
+    <ClInclude Include="graphicManager.h" />
+    <ClInclude Include="povrayImage.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
