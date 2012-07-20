@@ -14,6 +14,9 @@ namespace PovRayGraficCreator {
 	/// Zusammenfassung für Form1
 	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form{
+	private:
+		TGraphicManager *mGraphicManager;
+
 	#pragma region vom system generiert
 		public:
 			MainForm(void){
@@ -36,7 +39,8 @@ namespace PovRayGraficCreator {
 		protected: 
 		private: System::Windows::Forms::ToolStripMenuItem^  miFile;
 		private: System::Windows::Forms::ToolStripMenuItem^  miHelp;
-		private: System::Windows::Forms::TreeView^  tvObjects;
+	private: System::Windows::Forms::TreeView^  tvPovrayFigure;
+
 
 		private:
 			/// <summary>
@@ -53,7 +57,7 @@ namespace PovRayGraficCreator {
 			this->mainMenu = (gcnew System::Windows::Forms::MenuStrip());
 			this->miFile = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->miHelp = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->tvObjects = (gcnew System::Windows::Forms::TreeView());
+			this->tvPovrayFigure = (gcnew System::Windows::Forms::TreeView());
 			this->mainMenu->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -79,19 +83,19 @@ namespace PovRayGraficCreator {
 			this->miHelp->Size = System::Drawing::Size(72, 29);
 			this->miHelp->Text = L"Help";
 			// 
-			// tvObjects
+			// tvPovrayFigure
 			// 
-			this->tvObjects->Location = System::Drawing::Point(0, 36);
-			this->tvObjects->Name = L"tvObjects";
-			this->tvObjects->Size = System::Drawing::Size(244, 405);
-			this->tvObjects->TabIndex = 1;
+			this->tvPovrayFigure->Location = System::Drawing::Point(0, 36);
+			this->tvPovrayFigure->Name = L"tvPovrayFigure";
+			this->tvPovrayFigure->Size = System::Drawing::Size(244, 405);
+			this->tvPovrayFigure->TabIndex = 1;
 			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1056, 705);
-			this->Controls->Add(this->tvObjects);
+			this->Controls->Add(this->tvPovrayFigure);
 			this->Controls->Add(this->mainMenu);
 			this->MainMenuStrip = this->mainMenu;
 			this->Margin = System::Windows::Forms::Padding(4);
@@ -106,15 +110,19 @@ namespace PovRayGraficCreator {
 
 		}
 	#pragma endregion
+		// eigene Funktionen:
+		void UpdateFiguresAtTreeView(){
+			int i;
+			for(i = 0; i < (int)mGraphicManager->mAvailableFigureList.size(); ++i){ 
+				//this->tvPovrayFigure->Nodes->add(mGraphicManager->mAvailableFigureList.at(i));
+//				this->tvPovrayFigure->Nodes->add("hi");
+			}
+		}
+
 	private: System::Void MainForm_Load(System::Object^  sender, System::EventArgs^  e) {
 				mGraphicManager = new TGraphicManager();
-				UpdateFigureTreeView();
+				UpdateFiguresAtTreeView();
 			 }
-	private:
-		TGraphicManager *mGraphicManager;
-		void UpdateFigureTreeView(){
-
-		}
 
 	private: System::Void MainForm_Leave(System::Object^  sender, System::EventArgs^  e) {
 				 if( mGraphicManager ){
