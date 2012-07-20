@@ -10,6 +10,7 @@
 
 class TLightSource{
 private:
+	bool mshadowless;
 	void Init();
 	void DeInit();
 public:

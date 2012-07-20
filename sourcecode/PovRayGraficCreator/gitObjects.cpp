@@ -4,6 +4,12 @@
 #define BOX_STR			"Box"
 #define CYLINDER_STR	"Cylinder"
 
+void TPr_Object::Init(){
+	mName = "";	
+}
+void TPr_Object::DeInit(){	
+}
+
 // Kugel implementieren
 void TPr_Sphere::Init(){
 	mName = SPHERE_STR;

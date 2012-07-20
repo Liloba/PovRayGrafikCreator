@@ -21,7 +21,7 @@ public:
 };
 
 // allgemeines PovRay Object
-class TPr_Object abstract{
+class TPr_Object{
 public:
 	TLocation *mLocation;
 //	Bitmap mThumbnail;
@@ -29,8 +29,8 @@ public:
 //	??? mColor;
 //	??? mStructure;
 private:
-	virtual void Init() = 0;
-	virtual void DeInit() = 0;
+	void Init();
+	void DeInit();
 public:
 	TPr_Object(){ 
 		Init();

@@ -11,18 +11,22 @@
 #include "povrayImage.h"
 #include "lightSource.h"
 #include "camera.h"
+#include "gitObjects.h"
+#include <vector>
 
 using namespace std;
 
 class TGraphicManager{
 private:
-	// liste der verwendeten Figuren
+	vector<TPr_Object> mFigureList;			// liste der verwendeten Figuren
 	TLightSource *mLightSource;// Lichtquelle
 	TCamera *mCamera;// Kameraeinstellung
 	TPRImage *mResultImage;
 	void Init();
 	void DeInit();
 public:
+	vector<TPr_Object> mAvailableFigureList;	// liste aller Figuren die verfuegbar sind
+											// zb zum anzeigen im Treeview
 	// povray datei
 	TGraphicManager(){
 		Init();

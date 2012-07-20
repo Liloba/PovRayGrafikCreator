@@ -98,17 +98,30 @@ namespace PovRayGraficCreator {
 			this->Name = L"MainForm";
 			this->Text = L"PovRayGraficCreator";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
+			this->Leave += gcnew System::EventHandler(this, &MainForm::MainForm_Leave);
 			this->mainMenu->ResumeLayout(false);
 			this->mainMenu->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 	#pragma endregion
 	private: System::Void MainForm_Load(System::Object^  sender, System::EventArgs^  e) {
+				mGraphicManager = new TGraphicManager();
+				UpdateFigureTreeView();
 			 }
 	private:
 		TGraphicManager *mGraphicManager;
+		void UpdateFigureTreeView(){
 
+		}
+
+	private: System::Void MainForm_Leave(System::Object^  sender, System::EventArgs^  e) {
+				 if( mGraphicManager ){
+					 delete mGraphicManager;
+				 }
+
+			 }
 	}; // end of class MainForm
 
 }// end of namespace
