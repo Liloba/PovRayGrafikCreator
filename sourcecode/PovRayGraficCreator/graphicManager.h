@@ -13,6 +13,9 @@
 #include "camera.h"
 #include "gitObjects.h"
 #include <vector>
+#include <iostream>
+#include <fstream>
+
 
 using namespace std;
 
@@ -22,6 +25,8 @@ private:
 	TLightSource *mLightSource;// Lichtquelle
 	TCamera *mCamera;// Kameraeinstellung
 	TPRImage *mResultImage;
+	string mPathAndNameOfPovrayScript;
+	ofstream mPovrayFile;
 	void Init();
 	void DeInit();
 public:
@@ -34,8 +39,9 @@ public:
 	~TGraphicManager(){
 		DeInit();
 	}
-	bool CreatePovrayScript();
-	bool StartImageCalculation();
+	bool CreatePovrayImage();
+	bool CreatePovrayFile();
+	bool PovrayFileToImage();	
 };
 
 #endif
